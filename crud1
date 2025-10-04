@@ -1,0 +1,51 @@
+ 
+ 
+users = {} 
+ 
+ 
+def create_account(): 
+    email = input("Enter email: ") 
+    if email in users: 
+        print("❌ Account with this email already exists!") 
+        return 
+ 
+    first_name = input("Enter first name: ") 
+    last_name = input("Enter last name: ") 
+    password = input("Enter password: ") 
+ 
+    
+    users[email] = { 
+        "first_name": first_name, 
+        "last_name": last_name, 
+        "password": password    
+    } 
+    print("✅ Account created successfully!") 
+ 
+ 
+def show_accounts(): 
+    if not users: 
+        print("No accounts found.") 
+        return 
+    print("\n--- User Accounts ---") 
+    for email, details in users.items(): 
+        print(f"Email: {email}, Name: {details['first_name']} 
+{details['last_name']}") 
+ 
+ 
+if __name__ == "__main__": 
+    while True: 
+        print("\n1. Create Account") 
+        print("2. Show Accounts") 
+        print("3. Exit") 
+        choice = input("Choose an option: ") 
+ 
+        if choice == "1": 
+            create_account() 
+        elif choice == "2": 
+            show_accounts() 
+        elif choice == "3": 
+            print("Exiting...") 
+            break 
+        else: 
+            print("Invalid choice. Try again.") 
+ 
